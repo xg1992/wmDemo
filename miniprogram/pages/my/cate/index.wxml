@@ -1,0 +1,24 @@
+<!--pages/my/cate/index.wxml-->
+<select bindonchange="change" companyid="{{id}}"></select>
+<block wx:for="{{cateList}}" wx:key="_id">
+  <van-swipe-cell
+    id="swipe-cell"
+    right-width="{{ 65 }}"
+    left-width="{{ 65 }}"
+    async-close
+    bind:close="onClose"
+    data-cate-id="{{item._id}}"
+    data-company-id="{{id}}"
+    data-index="{{index}}"
+  >
+    <view slot="left" class="edit">编辑</view>
+    <van-cell-group>
+      <van-cell title="{{item.name}}" />
+    </van-cell-group>
+    <view slot="right" class="delete">删除</view>
+  </van-swipe-cell>
+</block>
+
+<view class="btn-box">
+  <navigator url="./add/index?companyId={{id}}"><van-button type="primary" size="small">新增大类</van-button></navigator>
+</view>

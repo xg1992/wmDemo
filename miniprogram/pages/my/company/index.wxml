@@ -1,0 +1,14 @@
+<!--pages/my/company/index.wxml-->
+<van-grid column-num="3" border="{{ true }}">
+  <van-grid-item use-slot wx:for="{{ list }}" wx:for-index="index" wx:key="_id">
+    <view class="box" bindtap="showTip" data-index="{{index}}">
+      <image class="headimg" src="/images/1.jpg" />
+      <view class="name">{{item.name}}</view>
+      <view class="btn-view" hidden="{{!item.edit}}">
+        <view class="edit" bindtap="edit" data-index="{{index}}">编辑</view>
+        <view class="del" bindtap="del" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+  </van-grid-item>
+</van-grid>
+<van-divider contentPosition="center" wx:if="{{isLast}}">没有更多数据了</van-divider>

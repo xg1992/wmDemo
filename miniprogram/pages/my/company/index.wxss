@@ -1,0 +1,53 @@
+/* pages/my/company/index.wxss */
+.solt-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 100%;
+  color: #fff;
+  background: #ee0a24;
+}
+.box {
+  width: 100%;
+  text-align: center;
+}
+.headimg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.name {
+  width: 100%;
+  text-align: center;
+  overflow: auto;
+  margin-top: 10px;
+  white-space: nowrap;
+}
+.btn-view {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  color: #fff;
+  animation: show .3s;
+}
+@keyframes show {
+  0% {
+    height: 0;
+  }
+  100%{
+    height: auto;
+  }
+}
+.edit {
+  background: orange;
+}
+.del {
+  background: #ee0a24;
+}
+.del, .edit {
+  padding: 5px 0;
+  flex: 1;
+}

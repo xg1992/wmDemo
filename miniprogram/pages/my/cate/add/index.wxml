@@ -1,0 +1,17 @@
+<!--pages/my/cate/add/index.wxml-->
+<select companyid="{{companyId}}" bindonchange="change"></select>
+<van-cell-group>
+  <van-field
+    name="name"
+    value="{{cateName}}"
+    label="类名"
+    placeholder="请输入类名"
+    border="{{ false }}"
+    bind:change="onChange"
+    required="{{true}}"
+    clearable
+  />
+</van-cell-group>
+<view class="btn-box">
+  <van-button type="primary" size="small" bind:click="save">保存</van-button>
+</view>

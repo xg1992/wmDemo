@@ -1,0 +1,6 @@
+/* pages/my/cate/add/index.wxss */
+.btn-box {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}

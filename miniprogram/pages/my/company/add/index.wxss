@@ -1,0 +1,6 @@
+/* pages/my/add/index.wxss */
+
+.center {
+  padding: 10px;
+  text-align: center;
+}

@@ -1,0 +1,23 @@
+<!--pages/my/add/index.wxml-->
+<view >
+  <van-cell-group>
+    <block wx:for="{{list}}" wx:for-item="item" wx:for-index="key" wx:key="label">
+      <van-field
+        name="{{key}}"
+        value="{{ form[key] }}"
+        label="{{item.label}}"
+        placeholder="请输入{{item.label}}"
+        border="{{ false }}"
+        type="{{item.type}}"
+        autosize="{{item.autosize}}"
+        data-name="{{key}}"
+        maxlength="{{item.maxlength ? item.maxlength : -1}}"
+        show-word-limit="{{item.limit}}"
+        bind:change="onChange"
+        required="{{item.required}}"
+        clearable
+      />
+    </block>
+  </van-cell-group>
+  <view class="center"><van-button type="primary" size="small" bind:click="submit">保存</van-button></view>
+</view>
