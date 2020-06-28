@@ -5,8 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl: '/images/user-unlogin.png',
-    userInfo: {},
+    userInfo: {
+      avatarUrl: '/images/user-unlogin.png',
+    },
     cell: [
       {
         title: '商家管理',
@@ -37,11 +38,11 @@ Page({
   onLoad: function (options) {
     this.getUserInfo();
   },
-  onShow(){
-    wx.showTabBarRedDot({
-      index: 0
-    })
-  },
+  // onShow(){
+  //   wx.showTabBarRedDot({
+  //     index: 0
+  //   })
+  // },
   getUserInfo(){
     // 获取用户信息
     wx.getSetting({
@@ -52,7 +53,6 @@ Page({
             success: res => {
               console.log(res)
               this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
                 userInfo: res.userInfo
               })
             }
@@ -60,5 +60,9 @@ Page({
         }
       }
     })
+  },
+  onGetUserInfo(info){
+    console.log(info)
+    this.setData({userInfo: info.detail.userInfo})
   }
 })

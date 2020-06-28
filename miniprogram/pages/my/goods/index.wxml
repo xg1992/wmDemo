@@ -1,2 +1,12 @@
 <!--pages/my/goods/index.wxml-->
-<text>pages/my/goods/index.wxml</text>
+<block wx:for="{{cateList}}">
+  <van-card
+    price="{{item.price}}"
+    desc="{{item.remark}}"
+    title="{{item.goodsName}}"
+    thumb="{{ item.goodsImg }}"
+  />
+</block>
+<navigator url="./add/index" hover-class="navigator-hover">
+  <van-button type="primary" block >新增商品</van-button>
+</navigator>

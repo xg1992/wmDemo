@@ -35,7 +35,8 @@ Component({
         action: 'company/getCompanyList',
         data: {
           page: 1,
-          pageSize: 100000
+          pageSize: 100000,
+          isUserCompany: true
         }
       },res=>{
         console.log(res)

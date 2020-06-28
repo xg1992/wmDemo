@@ -59,8 +59,8 @@ Page({
   },
   getDetail(){
     App.cloudFun({
-      name: 'company',
-      action: 'getCompanyDetail',
+      name: 'api',
+      action: 'company/getCompanyDetail',
       data: { id: this.data.id }
     },res=>{
       this.setData({
@@ -71,9 +71,6 @@ Page({
   onChange(e){
     let name = e.target.dataset.name;
     this.data.form[name] = e.detail
-    // this.setData({
-    //   form: this.data.form
-    // })
   },
   submit(){
     let list = this.data.list;
@@ -97,8 +94,8 @@ Page({
   },
   add(){
     App.cloudFun({
-      name: 'company',
-      action: 'addCompany',
+      name: 'api',
+      action: 'company/addCompany',
       data: this.data.form
     },res=>{
       wx.showToast({
@@ -109,8 +106,8 @@ Page({
   },
   edit(){
     App.cloudFun({
-      name: 'company',
-      action: 'editCompany',
+      name: 'api',
+      action: 'company/editCompany',
       data: this.data.form
     }, res => {
       wx.showToast({

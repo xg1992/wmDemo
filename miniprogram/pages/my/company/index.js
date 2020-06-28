@@ -27,10 +27,11 @@ Page({
   getList() {
     if(this.data.isLast) return ;
     App.cloudFun({
-      name: 'company',
-      action: 'getCompanyList',
+      name: 'api',
+      action: 'company/getCompanyList',
       data: {
-        ...this.data.pageOpt
+        ...this.data.pageOpt,
+        isUserCompany: true
       }
     }, (res)=>{
       let data = res.data;
@@ -47,10 +48,14 @@ Page({
   },
   showTip(e){
     let index = e.currentTarget.dataset.index;
-    this.data.list.forEach((item,index)=>{ // 把其他店铺的操作按钮隐藏
-      item.edit = false;
-    })
-    this.data.list[index].edit = true
+    if(this.data.list[index].edit){ // 如果点击的商家已显示按钮，则隐藏
+      this.data.list[index].edit = false;
+    }else{
+      this.data.list.forEach((item,index)=>{ // 把其他店铺的操作按钮隐藏
+        item.edit = false;
+      })
+      this.data.list[index].edit = true
+    }
     this.setData({
       list: this.data.list
     })
@@ -63,10 +68,10 @@ Page({
   },
   del(e){
     let index = e.currentTarget.dataset.index;
-    wx.cloud.callFunction({
-      name: 'company',
+    App.cloudFun({
+      name: 'api',
+      action: 'company/delCompany',
       data: {
-        action: 'delCompany',
         data: {
           id: this.data.list[index]._id
         }

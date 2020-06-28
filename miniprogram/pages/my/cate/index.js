@@ -16,35 +16,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.getList()
   },
   onShow(){
     if(this.data.notFirst){
       this.getCateList()
     }
     this.data.notFirst = true;
-  },
-  getList(){
-    App.cloudFun({
-      name: 'api',
-      action: 'company/getCompanyList',
-      data: {
-        page: 1,
-        pageSize: 100000
-      }
-    },res=>{
-      console.log(res)
-      let arr = [];
-      res.data.forEach((item,index)=>{
-        arr[index] = {}
-        arr[index].text = item.name
-        arr[index].value = item._id
-      })
-      this.setData({
-        list: arr,
-        value: arr[0].value
-      })
-    })
   },
   change(e){
     console.log(e.detail)
