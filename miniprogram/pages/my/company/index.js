@@ -72,14 +72,12 @@ Page({
       name: 'api',
       action: 'company/delCompany',
       data: {
-        data: {
-          id: this.data.list[index]._id
-        }
+        id: this.data.list[index]._id
       }
-    }).then(res => {
-      if (res.result.code === 1){
+    }, res => {
+      if (res.code === 1){
         wx.showToast({
-          title: res.result.msg,
+          title: res.msg,
           icon: 'none'
         })
         this.data.list.splice(index,1);
