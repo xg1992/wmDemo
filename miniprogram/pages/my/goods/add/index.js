@@ -116,22 +116,6 @@ Page({
         icon: 'none'
       })
     })
-  },
-  // 图片上传
-  afterRead(event) {
-    const { file } = event.detail;
-    console.log(file)
-    // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
-    wx.cloud.uploadFile({
-      cloudPath: 'companyImg/' + new Date().getTime() + Math.floor(Math.random() * 100) + '.png',
-      filePath: file.path, // 文件路径
-    }).then(res => {
-      // get resource ID
-      console.log(res.fileID)
-      this.data.form.headimg = res.fileID
-      this.setData({'fileList[0]':res.fileID})
-    }).catch(error => {
-      // handle error
-    })
-  },
+    
+  }
 })

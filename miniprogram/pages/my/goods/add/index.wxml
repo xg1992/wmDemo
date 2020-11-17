@@ -1,9 +1,6 @@
 <!--pages/my/add/index.wxml-->
 <view >
   <van-cell-group>
-    <van-cell title="店铺头像" custom-class="headimg-box" title-class="headimg-title" value-class="headming">
-      <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
-    </van-cell>
     <block wx:for="{{list}}" wx:for-item="item" wx:for-index="key" wx:key="label">
       <van-field
         name="{{key}}"
@@ -21,6 +18,9 @@
         clearable
       />
     </block>
+    <van-cell title="店铺头像" >
+      <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+    </van-cell>
   </van-cell-group>
   <view class="center"><van-button type="primary" size="small" bind:click="submit">保存</van-button></view>
 </view>

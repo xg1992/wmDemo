@@ -1,5 +1,15 @@
 /* pages/my/add/index.wxss */
-
+.headimg-box {
+  display: flex;
+  justify-content: flex-start;
+}
+.headimg-title {
+  max-width: 90px;
+  min-width: 90px;
+}
+.headming {
+  text-align: left;
+}
 .center {
   padding: 10px;
   text-align: center;

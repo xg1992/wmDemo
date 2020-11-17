@@ -2,7 +2,7 @@
 <van-grid column-num="3" border="{{ true }}">
   <van-grid-item use-slot wx:for="{{ list }}" wx:for-index="index" wx:key="_id">
     <view class="box" bindtap="showTip" data-index="{{index}}">
-      <image class="headimg" src="/images/1.jpg" />
+      <image class="headimg" src="{{item.headimg || '/images/1.jpg'}}" />
       <view class="name">{{item.name}}</view>
       <view class="btn-view" hidden="{{!item.edit}}">
         <view class="edit" bindtap="edit" data-index="{{index}}">编辑</view>
