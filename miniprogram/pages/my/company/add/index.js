@@ -123,13 +123,13 @@ Page({
     console.log(file)
     // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
     wx.cloud.uploadFile({
-      cloudPath: 'companyImg/' + new Date().getTime() + Math.floor(Math.random() * 100) + '.png',
+      cloudPath: 'companyImg/' + new Date().getTime() + Math.floor(Math.random() * 1000) + '.png',
       filePath: file.path, // 文件路径
     }).then(res => {
       // get resource ID
       console.log(res.fileID)
       this.data.form.headimg = res.fileID
-      this.setData({'fileList[0]':res.fileID})
+      this.setData({'fileList[0]':{url:res.fileID}})
     }).catch(error => {
       // handle error
     })
